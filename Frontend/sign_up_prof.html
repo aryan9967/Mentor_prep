@@ -32,15 +32,14 @@
                         Sign Up
                     </h1>
                     <form>
-
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="new_username" placeholder="Username">
-                            <label for="new_username">Enter your mobile no.</label>
+                            <input type="tel" class="form-control" pattern="[0-9]{10}" id="contact_no"
+                                placeholder="MObile no.">
+                            <label for="contact_no">Enter your mobile no.</label>
                         </div>
                         <div class="form-floating mb-2">
-                            <input type="password" class="form-control" id="new_cnf_pass"
-                                placeholder="Confirm Password">
-                            <label for="new_cnf_pass">Enter OTP</label>
+                            <input type="password" class="form-control" id="otp_rec" placeholder="OTP">
+                            <label for="otp_rec">Enter OTP</label>
                         </div>
                         <div class="form-check form-switch mb-3">
                             <label class="form-check-label" for="flexSwitchCheckDefault">Are you a mentor?</label>
@@ -64,8 +63,8 @@
                                     style="padding-left: 2.5rem; padding-right: 2.5rem;" onclick="getOTP()">Get
                                     OTP</button>
                                 <button type="button" class="btn btn-primary btn-lg "
-                                    style="padding-left: 2.5rem; padding-right: 2.5rem;" onclick="profile_reg()"
-                                    disabled>Login</button>
+                                    style="padding-left: 2.5rem; padding-right: 2.5rem;" id="register_btn"
+                                    onclick="profile_reg()" disabled>Sign Up</button>
                             </div>
                             <p class="small fw-bold mt-2 pt-1 mb-0" id="reg_btn">Already have an
                                 account? <a href="login.html" class="link-danger">Login</a></p>
@@ -96,7 +95,7 @@
                     <label for="me_age">Age</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="number" class="form-control" id="me_contact" placeholder="Contact" required>
+                    <input type="number" class="form-control" id="me_contact" placeholder="Contact" required readonly>
                     <label for="me_contact">Contact no.</label>
                 </div>
                 <div class="profession_sel mb-1">
@@ -136,12 +135,6 @@
                         <div class="act_profession">Law</div>
                     </div>
                 </div>
-                <div class="prof_container ps-1 pt-2 pb-2 pe-1 border" id="career_preference">
-                    <span class="border p-1 ps-1 pe-1 me-3 rounded-5 small_i border-success bg-success-subtle">Nursing
-                        <span class="material-symbols-outlined" onclick="remove_prof(this)">
-                            close
-                        </span></span>
-                </div>
             </div>
             <div class="right_a">
                 <div class="form-floating mb-3">
@@ -160,15 +153,15 @@
                     <input type="email" class="form-control" id="me_email" placeholder="Email id">
                     <label for="me_email">Email id</label>
                 </div>
-                <select class="form-select" aria-label="Default select example" id="engli_pro">
-                    <option selected>Profeciency in English</option>
-                    <option value="beginner">Beginner</option>
-                    <option value="intermediate">Intermediate</option>
-                    <option value="advanced">Advanced</option>
-                </select>
+                <div class="prof_container ps-1 pt-2 pb-2 pe-1 border" id="career_preference">
+                    <span class="border p-1 ps-1 pe-1 me-3 rounded-5 small_i border-success bg-success-subtle">Nursing
+                        <span class="material-symbols-outlined" onclick="remove_prof(this)">
+                            close
+                        </span></span>
+                </div>
             </div>
         </div>
-        <div class="btn_container">
+        <div class="btn_container1">
             <button class="btn_width btn btn-outline-success btn-lg" onclick="me_reg()">Register</button>
         </div>
     </div>
@@ -178,104 +171,127 @@
         <div class="progress-bar" style="width: 25%" id="progress_bar"></div>
     </div>
 
-    <form>
+    <form id="mr_reg_form">
         <div class="registration_form rounded-3" id="mentor_registration">
             <h1 class="mb-4">
-                User Registration
+                Mentor Registration
             </h1>
             <div class="container-fluid a_flex mb-3">
                 <div class="left_a">
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingInputm3" placeholder="First name" required>
-                        <label for="floatingInputm3">First name</label>
+                        <input type="text" class="form-control" id="mr_first" placeholder="First name" required>
+                        <label for="mr_first">First name</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingInputm4" placeholder="Last name" required>
-                        <label for="floatingInputm4">Last name</label>
+                        <input type="text" class="form-control" id="mr_last" placeholder="Last name" required>
+                        <label for="mr_last">Last name</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="number" class="form-control" id="floatingInputm5" placeholder="Age" required>
-                        <label for="floatingInputm5">Age</label>
+                        <input type="number" class="form-control" id="mr_age" placeholder="Age" required>
+                        <label for="mr_age">Age</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="number" class="form-control" id="floatingInputm6" placeholder="Contact" required>
-                        <label for="floatingInputm6">Contact no.</label>
+                        <input type="number" class="form-control" id="mr_contact" placeholder="Contact" required
+                            readonly>
+                        <label for="mr_contact">Contact no.</label>
                     </div>
-    
+
                 </div>
                 <div class="right_a">
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingInputm7" placeholder="Address">
-                        <label for="floatingInputm7">Address</label>
+                        <input type="text" class="form-control" id="mr_address" placeholder="Address">
+                        <label for="mr_address">Address</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingInputm8" placeholder="City">
-                        <label for="floatingInputm8">City</label>
+                        <input type="text" class="form-control" id="mr_city" placeholder="City">
+                        <label for="mr_city">City</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingInputm9" placeholder="State">
-                        <label for="floatingInputm9">State</label>
+                        <input type="text" class="form-control" id="mr_state" placeholder="State">
+                        <label for="mr_state">State</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="floatingInputm10" placeholder="Email id">
-                        <label for="floatingInputm10">Email id</label>
+                        <input type="email" class="form-control" id="mr_email" placeholder="Email id">
+                        <label for="mr_email">Email id</label>
                     </div>
                 </div>
             </div>
-            <div class="btn_container">
+            <div class="btn_container1">
                 <button class="btn_width btn btn-outline-success btn-lg" onclick="registration_forw()">Register</button>
             </div>
         </div>
-    
+
         <div class="registration_form rounded-3" id="mentor_registration1">
             <h1 class="mb-4">
                 Experience
             </h1>
             <div class="container-fluid a_flex mb-3">
                 <div class="left_a">
-                    <div class="form-floating mb-3">
-                        <input type="number" class="form-control" id="floatingInputm13" placeholder="Mentoring Experience"
+                    <div class="form-floating mb-2">
+                        <input type="number" class="form-control" id="mr_exp_yr" placeholder="Mentoring Experience"
                             required>
-                        <label for="floatingInputm13">Mentoring Experience</label>
+                        <label for="mr_exp_yr">Mentoring Experience(Years)</label>
                     </div>
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingInputm19" placeholder="Description">
-                        <label for="floatingInputm19">Description</label>
+                    <textarea class="form-control mb-3" id="mr_desc" rows="3" placeholder="Description" required></textarea>
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="exp1_t" placeholder="Experience 1(job title)">
+                        <label for="exp1_t">Experience 1</label>
                     </div>
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingInputm14" placeholder="Experience 1" required>
-                        <label for="floatingInputm14">Experience 1</label>
+                    <textarea class="form-control mb-3" id="exp1_d" rows="3"
+                        placeholder="Experience 1(Description)"></textarea>
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="exp2_t" placeholder="Experience 2(job title)">
+                        <label for="exp2_t">Experience 2</label>
                     </div>
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingInputm15" placeholder="Experience 2" required>
-                        <label for="floatingInputm15">Experience 2</label>
-                    </div>
-    
-    
+                    <textarea class="form-control mb-3" id="exp2_d" rows="3"
+                        placeholder="Experience 2(Description)"></textarea>
                 </div>
                 <div class="right_a">
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingInputm16" placeholder="Experience 3" required>
-                        <label for="floatingInputm16">Experience 3</label>
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="exp3_t" placeholder="Experience 3(job title)">
+                        <label for="exp3_t">Experience 3</label>
                     </div>
+                    <textarea class="form-control mb-3" id="exp3_d" rows="3"
+                        placeholder="Experience 3(Description)"></textarea>
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" id="floatingInputm17" placeholder="Degrees">
-                        <label for="floatingInputm17">Education(Degrees)</label>
+                        <label for="floatingInputm17">Education(Recent Degree)</label>
                     </div>
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingInputm18" placeholder="Awards">
-                        <label for="floatingInputm18">Awards</label>
-                    </div>
-    
-                    <select class="form-select" aria-label="Default select example" placeholder="Profession" onclick="mr_registration()">
-                        <option selected>Open this select menu</option>
-    
+                    <select class="form-select mb-3" aria-label="Default select example" placeholder="Profession" required>
+                        <option value="" selected>Choose your profession</option>
+                        <option value="Sales">Sales</option>
+                        <option value="Administration">Administration</option>
+                        <option value="Human Resources">Human Resources</option>
+                        <option value="Medicine">Medicine</option>
+                        <option value="Nurse">Nurse</option>
+                        <option value="Software Developer">Software Developer</option>
+                        <option value="Copywriter">Copywriter</option>
+                        <option value="Data Science">Data Science</option>
+                        <option value="Engineer">Engineer</option>
+                        <option value="Entrepreneurship">Entrepreneurship</option>
+                        <option value="IT">IT</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Pharmacist">Pharmacist</option>
+                        <option value="Physical Therapist">Physical Therapist</option>
+                        <option value="Teaching">Teaching</option>
+                        <option value="Banking">Banking</option>
+                        <option value="Business Development Manager">Business Development Manager</option>
+                        <option value="Designing">Designing</option>
+                        <option value="Digital Marketing">Digital Marketing</option>
+                        <option value="Education">Education</option>
+                        <option value="Finance">Finance</option>
+                        <option value="Forensic Science">Forensic Science</option>
+                        <option value="Fundraising">Fundraising</option>
+                        <option value="Law">Law</option>
                     </select>
-    
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label mb-2">Upload your resume</label>
+                        <input class="form-control" type="file" id="formFile" required>
+                    </div>
                 </div>
             </div>
-            <div class="btn_container">
-                <button class="btn_width btn btn-outline-success btn-lg">Register</button>
+            <div class="btn_container1">
+                <input type="submit" value="Register" class="btn_width btn btn-outline-success btn-lg">
             </div>
         </div>
     </form>
@@ -286,9 +302,8 @@
         crossorigin="anonymous"></script>
 
     <script>
-        var new_username = "";
-        var new_password = "";
-        var new_cnf_pass = "";
+        var contact_no = "";
+        var otp = "";
         var professions = "";
         function add_to_profession(elem) {
             document.getElementById("career_preference").style.display = "block"
@@ -305,16 +320,32 @@
             }
             career_container.innerHTML = professions;
         }
-        function getOTP(){
 
-        }
         function remove_prof(elem) {
             // console.log(elem);
             var parent_elem = elem.parentNode;
             var container = parent_elem.parentNode;
-            // console.log(parent_elem);
+            console.log(parent_elem);
             container.removeChild(parent_elem);
+            professions = "";
         }
+        function getOTP() {
+
+        }
+        //enabling and disabling login button
+        document.getElementById("otp_rec").addEventListener('keyup', function () {
+            console.log("hii");
+            otp = document.getElementById("otp_rec").value;
+            if (otp) {
+                document.getElementById("register_btn").disabled = false;
+            }
+            else {
+                document.getElementById("register_btn").disabled = true;
+            }
+
+        })
+
+
         function profile_reg() {
             const registration_form = document.getElementById("registration");
             const sign_up_form = document.getElementById("sign_up")
@@ -322,10 +353,9 @@
             const check = document.getElementById("flexSwitchCheckDefault").checked;
             const mentor_prog = document.getElementById("mentor_progress")
             const mentor_prog_bar = document.getElementById("progress_bar")
+            contact_no = document.getElementById("contact_no").value;
 
-            new_username = document.getElementById("new_username").value;
-            new_password = document.getElementById("new_password").value;
-            new_cnf_pass = document.getElementById("new_cnf_pass").value;
+            otp = document.getElementById("otp_rec").value;
 
             console.log(check);
 
@@ -335,33 +365,30 @@
                 mentor_prog.style.display = "flex"
                 mentor_prog_bar.style.width = "33%"
                 sign_up_form.style.display = "none";
+                console.log(contact_no);
+                document.getElementById("mr_contact").value = contact_no
             }
             else {
-                if (new_password == new_cnf_pass) {
-                    registration_form.style.display = "block";
-                    mentor_registration.style.display = "none";
-                    sign_up_form.style.display = "none";
-                }
-                else {
-                    window.alert("Passwords doesn't match")
-                }
-
+                registration_form.style.display = "block";
+                mentor_registration.style.display = "none";
+                sign_up_form.style.display = "none";
+                console.log(contact_no);
+                document.getElementById("me_contact").value = contact_no
             }
-
         }
+
         async function me_reg() {
             var firstname = document.getElementById("me_fname").value
             var lastname = document.getElementById("me_lname").value
             var age = document.getElementById("me_age").value
-            var contact_no = document.getElementById("me_contact").value
+            contact_no = document.getElementById("me_contact").value
             var address = document.getElementById("me_address").value
             var city = document.getElementById("me_city").value
             var state = document.getElementById("me_state").value
             var email_id = document.getElementById("me_email").value
-            var english_profi = document.getElementById("engli_pro").value
-            
-            var complete_address = address +" "+city+" "+state;
-            var full_name = firstname+" "+lastname;
+
+            var complete_address = address + " " + city + " " + state;
+            var full_name = firstname + " " + lastname;
             var me_prof = {
 
             };
@@ -369,8 +396,7 @@
             var career_container = document.getElementById("career_preference");
             var total_select = career_container.querySelectorAll(".count_sol")
 
-            for(var i = 0; i<total_select.length; i++)
-            {
+            for (var i = 0; i < total_select.length; i++) {
                 console.log(total_select[i].firstChild);
                 var field = total_select[i].firstChild.textContent;
                 me_prof[field] = total_select[i].firstChild.textContent;
@@ -391,7 +417,7 @@
                     contact: contact_no,
                     address: complete_address,
                     age: age,
-                    preference: me_prof 
+                    preference: me_prof
                 })
             }
             try {
@@ -400,31 +426,35 @@
                 console.log(response_act);
                 console.log(response_act.success)
                 var success_status = response_act.success;
-                if(success_status){
+                if (success_status) {
                     window.location.replace("./login.html")
                 }
-                else{
+                else {
                     window.alert("username is already taken")
                 }
             }
             catch (error) {
                 console.log(error);
             }
-
         }
+
         function registration_forw() {
             const mentor_prog_bar = document.getElementById("progress_bar");
             const mentor_registration = document.getElementById("mentor_registration");
             mentor_registration.style.display = "none";
-
             const mentor_registration1 = document.getElementById("mentor_registration1");
             mentor_registration1.style.display = "block";
-
             mentor_prog_bar.style.width = "67%"
-        }
-        function mr_registration(){
 
         }
+
+        mr_reg_form = document.getElementById("mr_reg_form");
+        mr_reg_form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            var mr_form_data = new FormData(mr_reg_form);
+            console.log(mr_form_data);
+        })
+        
         function expand_prof() {
             const prof = document.getElementById("prof_collection")
             if (prof.style.height == "150px") {

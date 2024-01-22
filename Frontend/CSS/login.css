@@ -151,7 +151,7 @@ select {
     justify-content: center;
 }  
 .btn_width{
-    width: 10vw;
+    width: 25vw;
 }
 .position_a{
     font-size: 4vh;
@@ -176,4 +176,11 @@ select {
 }
 .btn_container button{
     width: 49%;
+}
+.btn_container1{
+    display: flex;
+    justify-content: center;
+}
+textarea{
+    resize: none;
 }
